@@ -398,13 +398,17 @@ export default function HomePage() {
                   href="https://marsprotocol.io/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center w-64 h-32 bg-gradient-to-br from-purple-900 via-purple-800 to-black rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  className="flex items-center justify-center w-64 h-32 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom right, #440B37, black)",
+                  }}
                 >
                   <Image
                     src="/protocols/mars_protocol.svg"
                     alt="Mars Protocol"
-                    width={120}
-                    height={48}
+                    width={140}
+                    height={56}
                     className="drop-shadow-lg"
                   />
                 </a>
@@ -529,6 +533,101 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
+          </div>
+
+          <div className="text-center mt-16">
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-600 italic">
+              {"And more to come..."}
+            </h3>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative -mt-16 z-0 w-screen ml-[calc(-50vw+50%)]">
+        <div
+          className="relative w-full h-[1344px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+          style={{
+            backgroundImage: "url(/panorama.png)",
+          }}
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto px-4">
+            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <Image
+                src="/app-views/overview.png"
+                alt="Overview"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-xl font-semibold">Overview</h3>
+                  <p className="text-sm text-gray-200">
+                    Complete portfolio dashboard
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <Image
+                src="/app-views/staking.png"
+                alt="Staking"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-xl font-semibold">Staking</h3>
+                  <p className="text-sm text-gray-200">
+                    Manage your staking rewards
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <Image
+                src="/app-views/defi.png"
+                alt="DeFi"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-xl font-semibold">DeFi</h3>
+                  <p className="text-sm text-gray-200">
+                    DeFi protocols and liquidity
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <Image
+                src="/app-views/nft.png"
+                alt="NFTs"
+                width={800}
+                height={600}
+                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-xl font-semibold">NFTs</h3>
+                  <p className="text-sm text-gray-200">
+                    NFT collections and marketplace
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+            <p className="text-sm text-white font-bold drop-shadow-lg">
+              © 2024 whalingdotxyz. All rights reserved.
+            </p>
           </div>
         </div>
       </section>

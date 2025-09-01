@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-30">
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-30">
         <div
           className="relative"
           onMouseEnter={() => setShowNavBanner(true)}
@@ -35,7 +35,7 @@ export default function HomePage() {
         >
           <div
             className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-              showNavBanner || isScrolled
+              showNavBanner
                 ? "opacity-100 scale-100"
                 : "opacity-0 scale-95 pointer-events-none"
             }`}
@@ -490,6 +490,41 @@ export default function HomePage() {
                 <p className="text-sm text-gray-500 leading-relaxed">
                   {
                     "Experience ultra-low latency trading and seamless cross-chain operations with Superbolt's cutting-edge infrastructure."
+                  }
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              <div className="flex-shrink-0">
+                <a
+                  href="https://nolus.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-64 h-32 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  style={{ backgroundColor: "#E8EAF1" }}
+                >
+                  <Image
+                    src="/protocols/nolus_logo.svg"
+                    alt="Nolus"
+                    width={120}
+                    height={24}
+                    className="drop-shadow-lg"
+                  />
+                </a>
+              </div>
+              <div className="flex-1 text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  {"DeFi Lease Protocol"}
+                </h2>
+                <p className="text-base text-gray-600 leading-relaxed mb-3">
+                  {
+                    "Nolus provides innovative DeFi lease solutions, enabling users to maximize their capital efficiency through advanced lending protocols."
+                  }
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {
+                    "Access sophisticated financial instruments and lease-based DeFi products built for the Cosmos ecosystem."
                   }
                 </p>
               </div>

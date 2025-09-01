@@ -1,29 +1,29 @@
-"use client"
+"use client";
 
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
-import { Github } from "lucide-react"
-import { useState, useEffect } from "react"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import { Github } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function HomePage() {
-  const [showNavBanner, setShowNavBanner] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [scrollRotation, setScrollRotation] = useState(0)
+  const [showNavBanner, setShowNavBanner] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollRotation, setScrollRotation] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY
-      const heroHeight = window.innerHeight * 0.8
-      setIsScrolled(scrollY > heroHeight)
+      const scrollY = window.scrollY;
+      const heroHeight = window.innerHeight * 0.8;
+      setIsScrolled(scrollY > heroHeight);
 
-      const rotation = (scrollY * 0.05) % 360
-      setScrollRotation(rotation)
-    }
+      const rotation = (scrollY * 0.05) % 360;
+      setScrollRotation(rotation);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
@@ -35,15 +35,25 @@ export default function HomePage() {
         >
           <div
             className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-              showNavBanner || isScrolled ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
+              showNavBanner || isScrolled
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-95 pointer-events-none"
             }`}
           >
             <div className="bg-black/90 backdrop-blur-sm rounded-full px-4 py-1 flex items-center gap-4">
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium">Earn</button>
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium">Blog</button>
+              <button className="text-white hover:text-primary transition-colors text-sm font-medium">
+                Earn
+              </button>
+              <button className="text-white hover:text-primary transition-colors text-sm font-medium">
+                Blog
+              </button>
               <div className="w-20 h-8" /> {/* Increased space for logo */}
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium">Docs</button>
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium">FAQ</button>
+              <button className="text-white hover:text-primary transition-colors text-sm font-medium">
+                Docs
+              </button>
+              <button className="text-white hover:text-primary transition-colors text-sm font-medium">
+                FAQ
+              </button>
             </div>
           </div>
 
@@ -92,41 +102,43 @@ export default function HomePage() {
           </a>
         </div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8 pt-32">
           <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-balance">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
               <span className="text-white">{"Dive deep into"}</span>
               <br />
               <span className="text-white">{"whaleboard"}</span>
             </h1>
 
-            <p className="text-lg md:text-xl lg:text-2xl text-white mb-8 text-pretty max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-white mb-6 text-pretty max-w-2xl mx-auto leading-relaxed">
               {
                 "A unified dashboard for your liquidity across cosmos chains to navigate through vast data seas and discover hidden insights beneath the surface."
               }
             </p>
           </div>
 
-          <Card className="p-8 md:p-12 bg-card/95 border-primary/20 shadow-2xl max-w-md w-full mx-auto">
+          <Card className="p-6 md:p-8 bg-card/95 border-primary/20 shadow-2xl max-w-sm w-full mx-auto">
             <div className="text-center space-y-6">
-              <h2 className="text-2xl md:text-3xl font-semibold text-card-foreground">{"Ready to Explore?"}</h2>
+              <h2 className="text-xl md:text-2xl font-semibold text-card-foreground">
+                {"Ready to Explore?"}
+              </h2>
 
-              <p className="text-muted-foreground text-balance">
+              <p className="text-sm text-muted-foreground text-balance">
                 {
                   "Check out the beta version that serves as a proof of concept with working assets overviews and protocols integrations."
                 }
               </p>
 
               <Button
-                size="lg"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-8 rounded-lg transition-colors duration-300"
+                size="default"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-6 rounded-lg transition-colors duration-300"
               >
                 {"Start Your Journey"}
               </Button>
             </div>
           </Card>
 
-          <div className="mt-16" />
+          <div className="mt-8" />
         </div>
 
         <div className="absolute top-20 left-10 w-2 h-2 bg-primary/30 rounded-full" />
@@ -137,10 +149,14 @@ export default function HomePage() {
 
       <section className="bg-white py-20 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">{"Navigate the Interchain"}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+            {"Navigate the Interchain"}
+          </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-primary">{"Unified Assets Management"}</h3>
+              <h3 className="text-xl font-semibold text-primary">
+                {"Unified Assets Management"}
+              </h3>
               <p className="text-gray-600 leading-relaxed">
                 {
                   "Track and manage your assets across multiple Cosmos chains from a single, intuitive dashboard. No more jumping between different interfaces."
@@ -148,7 +164,9 @@ export default function HomePage() {
               </p>
             </div>
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-primary">{"Defi & NFTs"}</h3>
+              <h3 className="text-xl font-semibold text-primary">
+                {"Defi & NFTs"}
+              </h3>
               <p className="text-gray-600 leading-relaxed">
                 {
                   "centralized overview of your liquity across various protocols with critical data at a glance helping you make informed decisions in the DeFi space."
@@ -170,13 +188,16 @@ export default function HomePage() {
           <div className="w-[48rem] h-[48rem] border border-gray-300 rounded-full absolute"></div>
           <div className="w-[54rem] h-[54rem] border border-gray-300 rounded-full absolute"></div>
 
-          <div className="absolute w-48 h-48" style={{ transform: `rotate(${scrollRotation + 85}deg)` }}>
+          <div
+            className="absolute w-48 h-48"
+            style={{ transform: `rotate(${scrollRotation + 85}deg)` }}
+          >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
-                top: `calc(50% - ${96}px - 20px)`,
-                left: `calc(50% - 20px)`,
-                transform: `rotate(${-(scrollRotation + 85)}deg)`,
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translateY(-${96}px)`,
               }}
             >
               <Image
@@ -189,29 +210,47 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="absolute w-72 h-72" style={{ transform: `rotate(${scrollRotation * 0.8 + 160}deg)` }}>
+          <div
+            className="absolute w-72 h-72"
+            style={{ transform: `rotate(${scrollRotation * 0.8 + 160}deg)` }}
+          >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
-                top: `calc(50% - ${144}px - 20px)`,
-                left: `calc(50% - 20px)`,
-                transform: `rotate(${-(scrollRotation * 0.8 + 160)}deg)`,
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translateY(-${144}px) rotate(150deg)`,
               }}
             >
-              <Image src="/chains/osmo.svg" alt="Osmosis" width={40} height={40} className="w-10 h-10 drop-shadow-lg" />
+              <Image
+                src="/chains/osmo.svg"
+                alt="Osmosis"
+                width={40}
+                height={40}
+                className="w-10 h-10 drop-shadow-lg"
+              />
             </div>
           </div>
 
-          <div className="absolute w-96 h-96" style={{ transform: `rotate(${scrollRotation * 0.6 + 310}deg)` }}>
+          <div
+            className="absolute w-96 h-96"
+            style={{ transform: `rotate(${scrollRotation * 0.6 + 310}deg)` }}
+          >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
-                top: `calc(50% - ${192}px - 20px)`,
-                left: `calc(50% - 20px)`,
-                transform: `rotate(${-(scrollRotation * 0.6 + 310)}deg)`,
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translateY(-${192}px) rotate(17deg)`,
               }}
             >
-              <Image src="/chains/dydx.svg" alt="dYdX" width={40} height={40} className="w-10 h-10 drop-shadow-lg" />
+              <Image
+                src="/chains/dydx.svg"
+                alt="dYdX"
+                width={40}
+                height={40}
+                className="w-10 h-10 drop-shadow-lg"
+              />
             </div>
           </div>
 
@@ -222,12 +261,18 @@ export default function HomePage() {
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
-                top: `calc(50% - ${240}px - 20px)`,
-                left: `calc(50% - 20px)`,
-                transform: `rotate(${-(scrollRotation * 0.4 + 25)}deg)`,
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translateY(-${240}px)`,
               }}
             >
-              <Image src="/chains/baby.svg" alt="Baby" width={40} height={40} className="w-10 h-10 drop-shadow-lg" />
+              <Image
+                src="/chains/baby.svg"
+                alt="Baby"
+                width={40}
+                height={40}
+                className="w-10 h-10 drop-shadow-lg"
+              />
             </div>
           </div>
 
@@ -238,12 +283,18 @@ export default function HomePage() {
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
-                top: `calc(50% - ${288}px - 20px)`,
-                left: `calc(50% - 20px)`,
-                transform: `rotate(${-(scrollRotation * 0.3 + 220)}deg)`,
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translateY(-${288}px) rotate(125deg)`,
               }}
             >
-              <Image src="/chains/noble.svg" alt="Noble" width={40} height={40} className="w-10 h-10 drop-shadow-lg" />
+              <Image
+                src="/chains/noble.svg"
+                alt="Noble"
+                width={40}
+                height={40}
+                className="w-10 h-10 drop-shadow-lg"
+              />
             </div>
           </div>
 
@@ -254,30 +305,36 @@ export default function HomePage() {
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
-                top: `calc(50% - ${336}px - 20px)`,
-                left: `calc(50% - 20px)`,
-                transform: `rotate(${-(scrollRotation * 0.25 + 155)}deg)`,
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translateY(-${336}px) rotate(185deg)`,
               }}
             >
-              <Image src="/chains/akt.svg" alt="Akash" width={40} height={40} className="w-10 h-10 drop-shadow-lg" />
+              <Image
+                src="/chains/akt.svg"
+                alt="Akash"
+                width={40}
+                height={40}
+                className="w-10 h-10 drop-shadow-lg"
+              />
             </div>
           </div>
 
           <div
             className="absolute w-[48rem] h-[48rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.2 + 340}deg)` }}
+            style={{ transform: `rotate(${scrollRotation * 0.2 + 280}deg)` }}
           >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
-                top: `calc(50% - ${384}px - 20px)`,
-                left: `calc(50% - 20px)`,
-                transform: `rotate(${-(scrollRotation * 0.2 + 340)}deg)`,
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translateY(-${384}px)`,
               }}
             >
               <Image
-                src="/chains/neutron.svg"
-                alt="Neutron"
+                src="/chains/celestia.svg"
+                alt="Celestia"
                 width={40}
                 height={40}
                 className="w-10 h-10 drop-shadow-lg"
@@ -292,29 +349,43 @@ export default function HomePage() {
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
-                top: `calc(50% - ${432}px - 20px)`,
-                left: `calc(50% - 20px)`,
-                transform: `rotate(${-(scrollRotation * 0.15 + 70)}deg)`,
+                left: "50%",
+                top: "50%",
+                transform: `translate(-50%, -50%) translateY(-${432}px) rotate(10deg)`,
               }}
             >
-              <Image src="/chains/neutron.svg" alt="Neutron" width={40} height={40} className="w-10 h-10 drop-shadow-lg" />
+              <Image
+                src="/chains/neutron.svg"
+                alt="Neutron"
+                width={40}
+                height={40}
+                className="w-10 h-10 drop-shadow-lg"
+              />
             </div>
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto text-center relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">{"Supported Chains"}</h2>
-          <p className="text-lg text-gray-600 mb-16 max-w-2xl mx-auto">
-            {"Navigate through the cosmos ecosystem with integrated chain support"}
+        <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none -mt-16">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            {"Supported Chains"}
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto text-center">
+            {
+              "Navigate through all flagship cosmos chains with integrated chain support"
+            }
           </p>
         </div>
       </section>
 
       <section className="bg-gray-50 py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">{"Integrated Protocols"}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
+            {"Integrated Protocols"}
+          </h2>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-            {"Seamlessly connected to the leading protocols in the Cosmos ecosystem"}
+            {
+              "Seamlessly connected to the leading protocols in the Cosmos ecosystem"
+            }
           </p>
 
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
@@ -336,12 +407,14 @@ export default function HomePage() {
                 key={protocol}
                 className="p-4 rounded-lg bg-white border border-gray-200 hover:border-primary/30 hover:shadow-md transition-all duration-300"
               >
-                <span className="text-gray-700 font-medium text-sm md:text-base">{protocol}</span>
+                <span className="text-gray-700 font-medium text-sm md:text-base">
+                  {protocol}
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
     </>
-  )
+  );
 }

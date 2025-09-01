@@ -467,13 +467,13 @@ export default function HomePage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-64 h-32 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                  style={{ backgroundColor: "#00FFFF" }}
+                  style={{ backgroundColor: "#3FFFF3" }}
                 >
                   <Image
                     src="/protocols/superbolt_logo.svg"
                     alt="Superbolt"
-                    width={120}
-                    height={24}
+                    width={140}
+                    height={28}
                     className="drop-shadow-lg"
                   />
                 </a>

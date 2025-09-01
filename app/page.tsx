@@ -27,7 +27,7 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="fixed top-8 left-1/2 transform -translate-x-1/2 z-30">
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-30">
         <div
           className="relative"
           onMouseEnter={() => setShowNavBanner(true)}
@@ -82,7 +82,7 @@ export default function HomePage() {
 
         <div className="absolute top-6 right-6 z-20 flex items-center gap-4">
           <a
-            href="https://github.com"
+            href="https://github.com/whalingdotxyz"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300"
@@ -91,7 +91,7 @@ export default function HomePage() {
           </a>
 
           <a
-            href="https://x.com"
+            href="https://x.com/whalingdotxyz"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300"
@@ -132,8 +132,15 @@ export default function HomePage() {
               <Button
                 size="default"
                 className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-6 rounded-lg transition-colors duration-300"
+                asChild
               >
-                {"Start Your Journey"}
+                <a
+                  href="https://beta.whaling.xyz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {"Start Your Journey"}
+                </a>
               </Button>
             </div>
           </Card>
@@ -212,7 +219,7 @@ export default function HomePage() {
 
           <div
             className="absolute w-72 h-72"
-            style={{ transform: `rotate(${scrollRotation * 0.8 + 160}deg)` }}
+            style={{ transform: `rotate(${scrollRotation * 0.9 + 160}deg)` }}
           >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
@@ -234,14 +241,14 @@ export default function HomePage() {
 
           <div
             className="absolute w-96 h-96"
-            style={{ transform: `rotate(${scrollRotation * 0.6 + 310}deg)` }}
+            style={{ transform: `rotate(${scrollRotation * 0.8 + 310}deg)` }}
           >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
                 left: "50%",
                 top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${192}px) rotate(17deg)`,
+                transform: `translate(-50%, -50%) translateY(-${192}px) rotate(7deg)`,
               }}
             >
               <Image
@@ -256,7 +263,7 @@ export default function HomePage() {
 
           <div
             className="absolute w-[30rem] h-[30rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.4 + 25}deg)` }}
+            style={{ transform: `rotate(${scrollRotation * 0.7 + 25}deg)` }}
           >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
@@ -278,14 +285,14 @@ export default function HomePage() {
 
           <div
             className="absolute w-[36rem] h-[36rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.3 + 220}deg)` }}
+            style={{ transform: `rotate(${scrollRotation * 0.6 + 220}deg)` }}
           >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
                 left: "50%",
                 top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${288}px) rotate(125deg)`,
+                transform: `translate(-50%, -50%) translateY(-${288}px) rotate(110deg)`,
               }}
             >
               <Image
@@ -300,14 +307,14 @@ export default function HomePage() {
 
           <div
             className="absolute w-[42rem] h-[42rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.25 + 155}deg)` }}
+            style={{ transform: `rotate(${scrollRotation * 0.5 + 155}deg)` }}
           >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
                 left: "50%",
                 top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${336}px) rotate(185deg)`,
+                transform: `translate(-50%, -50%) translateY(-${336}px) rotate(177deg)`,
               }}
             >
               <Image
@@ -322,7 +329,7 @@ export default function HomePage() {
 
           <div
             className="absolute w-[48rem] h-[48rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.2 + 280}deg)` }}
+            style={{ transform: `rotate(${scrollRotation * 0.4 + 280}deg)` }}
           >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
@@ -344,14 +351,14 @@ export default function HomePage() {
 
           <div
             className="absolute w-[54rem] h-[54rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.15 + 70}deg)` }}
+            style={{ transform: `rotate(${scrollRotation * 0.3 + 70}deg)` }}
           >
             <div
               className="absolute hover:scale-125 transition-transform duration-300"
               style={{
                 left: "50%",
                 top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${432}px) rotate(10deg)`,
+                transform: `translate(-50%, -50%) translateY(-${432}px) rotate(5deg)`,
               }}
             >
               <Image
@@ -377,41 +384,116 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-gray-50 py-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
-            {"Integrated Protocols"}
-          </h2>
-          <p className="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
-            {
-              "Seamlessly connected to the leading protocols in the Cosmos ecosystem"
-            }
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
-            {[
-              "Osmosis",
-              "Noble",
-              "Stargaze",
-              "Akash",
-              "Cosmos Hub",
-              "Secret Network",
-              "Kujira",
-              "Injective",
-              "Stride",
-              "Evmos",
-              "Persistence",
-              "Comdex",
-            ].map((protocol) => (
-              <div
-                key={protocol}
-                className="p-4 rounded-lg bg-white border border-gray-200 hover:border-primary/30 hover:shadow-md transition-all duration-300"
-              >
-                <span className="text-gray-700 font-medium text-sm md:text-base">
-                  {protocol}
-                </span>
+      <section className="bg-white py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              {"Integrated Protocols"}
+            </h2>
+          </div>
+          <div className="space-y-16">
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              <div className="flex-shrink-0">
+                <a
+                  href="https://marsprotocol.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-64 h-32 bg-gradient-to-br from-purple-900 via-purple-800 to-black rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                >
+                  <Image
+                    src="/protocols/mars_protocol.svg"
+                    alt="Mars Protocol"
+                    width={120}
+                    height={48}
+                    className="drop-shadow-lg"
+                  />
+                </a>
               </div>
-            ))}
+              <div className="flex-1 text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  {"Powered by Mars Protocol"}
+                </h2>
+                <p className="text-base text-gray-600 leading-relaxed mb-3">
+                  {
+                    "Advanced lending and borrowing capabilities integrated seamlessly into your Cosmos portfolio management experience."
+                  }
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {
+                    "Mars Protocol provides sophisticated DeFi tools that enhance your ability to maximize yield and manage risk across the Cosmos ecosystem."
+                  }
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              <div className="flex-shrink-0">
+                <a
+                  href="https://stargaze.zone/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-64 h-32 bg-black rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                >
+                  <Image
+                    src="/protocols/stargaze_logo.svg"
+                    alt="Stargaze"
+                    width={120}
+                    height={24}
+                    className="drop-shadow-lg"
+                  />
+                </a>
+              </div>
+              <div className="flex-1 text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  {"NFT Marketplace Integration"}
+                </h2>
+                <p className="text-base text-gray-600 leading-relaxed mb-3">
+                  {
+                    "Comprehensive NFT portfolio tracking and marketplace integration through Stargaze, the premier NFT platform in the Cosmos ecosystem."
+                  }
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {
+                    "View, analyze, and manage your NFT collections across Cosmos chains with real-time valuation and marketplace activity insights."
+                  }
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              <div className="flex-shrink-0">
+                <a
+                  href="https://superbolt.xyz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center w-64 h-32 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
+                  style={{ backgroundColor: "#00FFFF" }}
+                >
+                  <Image
+                    src="/protocols/superbolt_logo.svg"
+                    alt="Superbolt"
+                    width={120}
+                    height={24}
+                    className="drop-shadow-lg"
+                  />
+                </a>
+              </div>
+              <div className="flex-1 text-left">
+                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                  {"Lightning Fast Transactions"}
+                </h2>
+                <p className="text-base text-gray-600 leading-relaxed mb-3">
+                  {
+                    "Superbolt provides lightning-fast transaction processing and advanced trading capabilities across the Cosmos ecosystem."
+                  }
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  {
+                    "Experience ultra-low latency trading and seamless cross-chain operations with Superbolt's cutting-edge infrastructure."
+                  }
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

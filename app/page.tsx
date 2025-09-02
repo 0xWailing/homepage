@@ -95,7 +95,7 @@ export default function HomePage() {
               alt="Whaling Logo"
               width={112}
               height={112}
-              className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] filter contrast-110 cursor-pointer transition-all duration-300 antialiased subpixel-antialiased rounded-full bg-transparent"
+              className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] filter contrast-110 cursor-pointer transition-all duration-300 subpixel-antialiased rounded-full bg-transparent"
               style={{
                 WebkitBackfaceVisibility: "hidden",
                 backfaceVisibility: "hidden",
@@ -599,13 +599,13 @@ export default function HomePage() {
         {/* Content on top - unaffected by fade */}
         <div className="relative w-full flex flex-col z-10 py-8 sm:py-12 md:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 md:gap-12 lg:gap-16 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-[3/2]">
+            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
               <Image
                 src="/app-views/overview.png"
                 alt="Overview"
                 width={800}
                 height={600}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
@@ -614,13 +614,13 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-[3/2]">
+            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
               <Image
                 src="/app-views/staking.png"
                 alt="Staking"
                 width={800}
                 height={600}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
@@ -629,13 +629,13 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-[3/2]">
+            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
               <Image
                 src="/app-views/defi.png"
                 alt="DeFi"
                 width={800}
                 height={600}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
@@ -644,13 +644,13 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-[3/2]">
+            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
               <Image
                 src="/app-views/nft.png"
                 alt="NFTs"
                 width={800}
                 height={600}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">

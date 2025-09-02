@@ -40,13 +40,16 @@ export default function HomePage() {
   }, [showBannerOnHover]);
 
   const handleLogoClick = () => {
-    // Only hide banner if it's showing due to hover, not scroll
-    const scrollY = window.scrollY;
-    const readyToExploreThreshold = window.innerHeight * 0.9;
-    const shouldShowOnScroll = scrollY > readyToExploreThreshold;
+    // Only enable click toggle on mobile (screens smaller than md breakpoint)
+    if (window.innerWidth < 768) {
+      const scrollY = window.scrollY;
+      const readyToExploreThreshold = window.innerHeight * 0.9;
+      const shouldShowOnScroll = scrollY > readyToExploreThreshold;
 
-    if (showBannerOnHover && !shouldShowOnScroll) {
-      setShowBannerOnHover(false);
+      // Toggle banner only if not showing due to scroll
+      if (!shouldShowOnScroll) {
+        setShowBannerOnHover(!showBannerOnHover);
+      }
     }
   };
 
@@ -70,7 +73,7 @@ export default function HomePage() {
                 <button
                   className="text-white hover:text-primary transition-colors text-xs sm:text-sm font-medium text-center"
                   onClick={() =>
-                    window.open("https://beta.wahaling.xyz", "_blank")
+                    window.open("https://beta.whaling.xyz", "_blank")
                   }
                 >
                   App (Launch Beta)

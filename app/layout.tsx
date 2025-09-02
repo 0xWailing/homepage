@@ -7,10 +7,8 @@ import { Suspense } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Whaling.xyz - Navigate the interchain",
-  description:
-    "Dive deep into the ocean of data with our whale-powered analytics platform",
-  generator: "v0.app",
+  title: "Whaling.xyz",
+  description: "Navigate the interchain",
 };
 
 export default function RootLayout({

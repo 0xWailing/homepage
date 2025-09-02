@@ -40,19 +40,18 @@ export default function HomePage() {
                 : "opacity-0 scale-95 pointer-events-none"
             }`}
           >
-            <div className="bg-black/90 backdrop-blur-sm rounded-full px-4 py-1 flex items-center gap-4">
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium">
-                Earn
+            <div className="bg-black/90 backdrop-blur-sm rounded-full px-6 py-1 flex items-center gap-6 whitespace-nowrap">
+              <button
+                className="text-white hover:text-primary transition-colors text-sm font-medium text-center"
+                onClick={() =>
+                  window.open("https://beta.whaling.xyz", "_blank")
+                }
+              >
+                App (Launch Beta)
               </button>
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium">
-                Blog
-              </button>
-              <div className="w-20 h-8" /> {/* Increased space for logo */}
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium">
-                Docs
-              </button>
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium">
-                FAQ
+              <div className="w-24 h-8" /> {/* Increased space for logo */}
+              <button className="text-white hover:text-primary transition-colors text-sm font-medium text-center">
+                Docs (coming soon)
               </button>
             </div>
           </div>
@@ -415,17 +414,10 @@ export default function HomePage() {
               </div>
               <div className="flex-1 text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  {"Powered by Mars Protocol"}
+                  {"Mars Protocol"}
                 </h2>
                 <p className="text-base text-gray-600 leading-relaxed mb-3">
-                  {
-                    "Advanced lending and borrowing capabilities integrated seamlessly into your Cosmos portfolio management experience."
-                  }
-                </p>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {
-                    "Mars Protocol provides sophisticated DeFi tools that enhance your ability to maximize yield and manage risk across the Cosmos ecosystem."
-                  }
+                  {"Your ultimate destination for leveraged yield."}
                 </p>
               </div>
             </div>
@@ -449,17 +441,10 @@ export default function HomePage() {
               </div>
               <div className="flex-1 text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  {"NFT Marketplace Integration"}
+                  {"Stargaze"}
                 </h2>
                 <p className="text-base text-gray-600 leading-relaxed mb-3">
-                  {
-                    "Comprehensive NFT portfolio tracking and marketplace integration through Stargaze, the premier NFT platform in the Cosmos ecosystem."
-                  }
-                </p>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {
-                    "View, analyze, and manage your NFT collections across Cosmos chains with real-time valuation and marketplace activity insights."
-                  }
+                  {"The interchain NFTs marketplace."}
                 </p>
               </div>
             </div>
@@ -484,16 +469,11 @@ export default function HomePage() {
               </div>
               <div className="flex-1 text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  {"Lightning Fast Transactions"}
+                  {"Superbolt"}
                 </h2>
                 <p className="text-base text-gray-600 leading-relaxed mb-3">
                   {
-                    "Superbolt provides lightning-fast transaction processing and advanced trading capabilities across the Cosmos ecosystem."
-                  }
-                </p>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {
-                    "Experience ultra-low latency trading and seamless cross-chain operations with Superbolt's cutting-edge infrastructure."
+                    "Where NFTs meet DeFi - mint, trade and fractionalize your NFTs!"
                   }
                 </p>
               </div>
@@ -519,16 +499,11 @@ export default function HomePage() {
               </div>
               <div className="flex-1 text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  {"DeFi Lease Protocol"}
+                  {"Nolus (coming soon)"}
                 </h2>
                 <p className="text-base text-gray-600 leading-relaxed mb-3">
                   {
-                    "Nolus provides innovative DeFi lease solutions, enabling users to maximize their capital efficiency through advanced lending protocols."
-                  }
-                </p>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  {
-                    "Access sophisticated financial instruments and lease-based DeFi products built for the Cosmos ecosystem."
+                    "Supercharge your buying power with asset-backed leverage, fixed rates, and reduced margin call risk."
                   }
                 </p>
               </div>
@@ -536,7 +511,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-16">
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-600 italic">
+            <h3 className="text-2xl md:text-3xl font-semibold text-gray-600">
               {"And more to come..."}
             </h3>
           </div>
@@ -562,9 +537,6 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-xl font-semibold">Overview</h3>
-                  <p className="text-sm text-gray-200">
-                    Complete portfolio dashboard
-                  </p>
                 </div>
               </div>
             </div>
@@ -580,9 +552,6 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-xl font-semibold">Staking</h3>
-                  <p className="text-sm text-gray-200">
-                    Manage your staking rewards
-                  </p>
                 </div>
               </div>
             </div>
@@ -598,9 +567,6 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-xl font-semibold">DeFi</h3>
-                  <p className="text-sm text-gray-200">
-                    DeFi protocols and liquidity
-                  </p>
                 </div>
               </div>
             </div>
@@ -616,9 +582,6 @@ export default function HomePage() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-xl font-semibold">NFTs</h3>
-                  <p className="text-sm text-gray-200">
-                    NFT collections and marketplace
-                  </p>
                 </div>
               </div>
             </div>

@@ -9,6 +9,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "whalingdotxyz",
   description: "Navigate the interchain",
+  icons: {
+    icon: "/whaling_dark.png",
+    shortcut: "/whaling_dark.png",
+  },
 };
 
 export default function RootLayout({

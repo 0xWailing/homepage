@@ -119,7 +119,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url(/backgroundocean-waves-bg.jpeg)",
+            backgroundImage: "url(/background/ocean-waves-bg.jpeg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

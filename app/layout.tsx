@@ -10,8 +10,8 @@ export const metadata: Metadata = {
   title: "whalingdotxyz",
   description: "Navigate the interchain",
   icons: {
-    icon: "/whaling_dark.png",
-    shortcut: "/whaling_dark.png",
+    icon: "logos/whaling_dark.png",
+    shortcut: "logos/whaling_dark.png",
   },
 };
 

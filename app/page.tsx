@@ -91,7 +91,11 @@ export default function HomePage() {
 
           <div className="relative z-10">
             <Image
-              src={showNavBanner ? "/whaling_dark.png" : "/whaling_logo.png"}
+              src={
+                showNavBanner
+                  ? "/logos/whaling_dark.png"
+                  : "/logos/whaling_logo.png"
+              }
               alt="Whaling Logo"
               width={112}
               height={112}
@@ -115,7 +119,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url(/ocean-waves-bg.jpeg)",
+            backgroundImage: "url(/backgroundocean-waves-bg.jpeg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -588,7 +592,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 w-full min-h-full bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url(/panorama.png)",
+            backgroundImage: "url(/background/panorama.png)",
             WebkitMaskImage:
               "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.01) 2%, rgba(0,0,0,0.03) 4%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.15) 10%, rgba(0,0,0,0.22) 12%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.4) 18%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.6) 22%, rgba(0,0,0,0.7) 24%, rgba(0,0,0,0.8) 26%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,1) 30%)",
             maskImage:

@@ -40,29 +40,34 @@ export default function HomePage() {
                 : "opacity-0 scale-95 pointer-events-none"
             }`}
           >
-            <div className="bg-black/90 backdrop-blur-sm rounded-full px-6 py-1 flex items-center gap-6 whitespace-nowrap">
-              <button
-                className="text-white hover:text-primary transition-colors text-sm font-medium text-center"
-                onClick={() =>
-                  window.open("https://beta.whaling.xyz", "_blank")
-                }
-              >
-                App (Launch Beta)
-              </button>
-              <div className="w-24 h-8" /> {/* Increased space for logo */}
-              <button className="text-white hover:text-primary transition-colors text-sm font-medium text-center">
-                Docs (coming soon)
-              </button>
+            <div className="bg-black/90 backdrop-blur-sm rounded-full px-4 sm:px-10 py-1 flex items-center justify-between w-80 sm:w-[28rem]">
+              <div className="flex-1 flex justify-center">
+                <button
+                  className="text-white hover:text-primary transition-colors text-xs sm:text-sm font-medium text-center"
+                  onClick={() =>
+                    window.open("https://beta.wahaling.xyz", "_blank")
+                  }
+                >
+                  App (Launch Beta)
+                </button>
+              </div>
+              <div className="w-16 sm:w-24 h-6" />{" "}
+              {/* Smaller space for logo */}
+              <div className="flex-1 flex justify-center">
+                <button className="text-white hover:text-primary transition-colors text-xs sm:text-sm font-medium text-center">
+                  Docs (coming soon)
+                </button>
+              </div>
             </div>
           </div>
 
           <div className="relative z-10">
             <Image
-              src="/whaling-logo.png"
+              src={showNavBanner ? "/whaling_dark.png" : "/whaling_logo.png"}
               alt="Whaling Logo"
               width={112}
               height={112}
-              className="w-28 h-28 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] filter contrast-110 cursor-pointer"
+              className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] filter contrast-110 cursor-pointer transition-all duration-300"
               priority
             />
           </div>
@@ -79,7 +84,7 @@ export default function HomePage() {
           }}
         ></div>
 
-        <div className="absolute top-6 right-6 z-20 flex items-center gap-4">
+        <div className="absolute top-6 right-6 z-20 hidden md:flex items-center gap-4">
           <a
             href="https://github.com/whalingdotxyz"
             target="_blank"
@@ -143,6 +148,29 @@ export default function HomePage() {
               </Button>
             </div>
           </Card>
+
+          {/* Mobile social buttons - shown only on mobile */}
+          <div className="md:hidden flex items-center justify-center gap-4 mt-6 z-20">
+            <a
+              href="https://github.com/whalingdotxyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300"
+            >
+              <Github className="w-5 h-5" />
+            </a>
+
+            <a
+              href="https://x.com/whalingdotxyz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300"
+            >
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+          </div>
 
           <div className="mt-8" />
         </div>
@@ -412,7 +440,7 @@ export default function HomePage() {
                   />
                 </a>
               </div>
-              <div className="flex-1 text-left">
+              <div className="flex-1 text-left md:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   {"Mars Protocol"}
                 </h2>
@@ -439,7 +467,7 @@ export default function HomePage() {
                   />
                 </a>
               </div>
-              <div className="flex-1 text-left">
+              <div className="flex-1 text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   {"Stargaze"}
                 </h2>
@@ -467,7 +495,7 @@ export default function HomePage() {
                   />
                 </a>
               </div>
-              <div className="flex-1 text-left">
+              <div className="flex-1 text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   {"Superbolt"}
                 </h2>
@@ -497,7 +525,7 @@ export default function HomePage() {
                   />
                 </a>
               </div>
-              <div className="flex-1 text-left">
+              <div className="flex-1 text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   {"Nolus (coming soon)"}
                 </h2>
@@ -511,7 +539,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center mt-16">
-            <h3 className="text-2xl md:text-3xl font-semibold text-gray-600">
+            <h3 className="text-2xl md:text-3xl font-semibold text-shadow-black">
               {"And more to come..."}
             </h3>
           </div>

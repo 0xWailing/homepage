@@ -17,6 +17,10 @@ export default function HomePage() {
       const heroHeight = window.innerHeight * 0.8;
       setIsScrolled(scrollY > heroHeight);
 
+      // Show banner when past the "Ready to Explore" section (roughly after hero + card)
+      const readyToExploreThreshold = window.innerHeight * 0.9;
+      setShowNavBanner(scrollY > readyToExploreThreshold);
+
       const rotation = (scrollY * 0.05) % 360;
       setScrollRotation(rotation);
     };
@@ -27,12 +31,8 @@ export default function HomePage() {
 
   return (
     <>
-      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-30">
-        <div
-          className="relative"
-          onMouseEnter={() => setShowNavBanner(true)}
-          onMouseLeave={() => setShowNavBanner(false)}
-        >
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-30">
+        <div className="relative">
           <div
             className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
               showNavBanner

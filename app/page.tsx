@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 
 export default function HomePage() {
   const [showNavBanner, setShowNavBanner] = useState(false);
+  const [showBannerOnHover, setShowBannerOnHover] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollRotation, setScrollRotation] = useState(0);
 
@@ -19,7 +20,8 @@ export default function HomePage() {
 
       // Show banner when past the "Ready to Explore" section (roughly after hero + card)
       const readyToExploreThreshold = window.innerHeight * 0.9;
-      setShowNavBanner(scrollY > readyToExploreThreshold);
+      const shouldShowOnScroll = scrollY > readyToExploreThreshold;
+      setShowNavBanner(shouldShowOnScroll || showBannerOnHover);
 
       const rotation = (scrollY * 0.05) % 360;
       setScrollRotation(rotation);
@@ -27,12 +29,24 @@ export default function HomePage() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [showBannerOnHover]);
+
+  // Update banner visibility when hover state changes
+  useEffect(() => {
+    const scrollY = window.scrollY;
+    const readyToExploreThreshold = window.innerHeight * 0.9;
+    const shouldShowOnScroll = scrollY > readyToExploreThreshold;
+    setShowNavBanner(shouldShowOnScroll || showBannerOnHover);
+  }, [showBannerOnHover]);
 
   return (
     <>
       <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-30">
-        <div className="relative">
+        <div
+          className="relative"
+          onMouseEnter={() => setShowBannerOnHover(true)}
+          onMouseLeave={() => setShowBannerOnHover(false)}
+        >
           <div
             className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
               showNavBanner

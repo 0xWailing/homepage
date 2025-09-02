@@ -546,13 +546,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative -mt-16 z-0 w-screen ml-[calc(-50vw+50%)]">
+      <section className="relative z-0 w-screen ml-[calc(-50vw+50%)]">
+        {/* Background with fade */}
         <div
-          className="relative w-full h-[1344px] bg-cover bg-center bg-no-repeat flex items-center justify-center"
+          className="absolute inset-0 w-full h-[1344px] bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url(/panorama.png)",
+            WebkitMaskImage:
+              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.01) 2%, rgba(0,0,0,0.03) 4%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.15) 10%, rgba(0,0,0,0.22) 12%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.4) 18%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.6) 22%, rgba(0,0,0,0.7) 24%, rgba(0,0,0,0.8) 26%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,1) 30%)",
+            maskImage:
+              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.01) 2%, rgba(0,0,0,0.03) 4%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.15) 10%, rgba(0,0,0,0.22) 12%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.4) 18%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.6) 22%, rgba(0,0,0,0.7) 24%, rgba(0,0,0,0.8) 26%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,1) 30%)",
           }}
-        >
+        ></div>
+
+        {/* Content on top - unaffected by fade */}
+        <div className="relative w-full h-[1344px] flex items-center justify-center z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto px-4">
             <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
               <Image

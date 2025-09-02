@@ -39,6 +39,17 @@ export default function HomePage() {
     setShowNavBanner(shouldShowOnScroll || showBannerOnHover);
   }, [showBannerOnHover]);
 
+  const handleLogoClick = () => {
+    // Only hide banner if it's showing due to hover, not scroll
+    const scrollY = window.scrollY;
+    const readyToExploreThreshold = window.innerHeight * 0.9;
+    const shouldShowOnScroll = scrollY > readyToExploreThreshold;
+
+    if (showBannerOnHover && !shouldShowOnScroll) {
+      setShowBannerOnHover(false);
+    }
+  };
+
   return (
     <>
       <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-30">
@@ -81,7 +92,16 @@ export default function HomePage() {
               alt="Whaling Logo"
               width={112}
               height={112}
-              className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] filter contrast-110 cursor-pointer transition-all duration-300"
+              className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_0_8px_rgba(0,0,0,0.8)] filter contrast-110 cursor-pointer transition-all duration-300 antialiased subpixel-antialiased rounded-full bg-transparent"
+              style={{
+                WebkitBackfaceVisibility: "hidden",
+                backfaceVisibility: "hidden",
+                WebkitTransform: "translateZ(0)",
+                transform: "translateZ(0)",
+                WebkitFontSmoothing: "antialiased",
+                MozOsxFontSmoothing: "grayscale",
+              }}
+              onClick={handleLogoClick}
               priority
             />
           </div>
@@ -130,7 +150,7 @@ export default function HomePage() {
 
             <p className="text-base md:text-lg lg:text-xl text-white mb-6 text-pretty max-w-2xl mx-auto leading-relaxed">
               {
-                "A unified dashboard for your liquidity across cosmos chains to navigate through vast data seas and discover hidden insights beneath the surface."
+                "A unified dashboard to help you steer your liquidity across cosmos chains and apps."
               }
             </p>
           </div>
@@ -454,7 +474,7 @@ export default function HomePage() {
                   />
                 </a>
               </div>
-              <div className="flex-1 text-left md:text-left">
+              <div className="flex-1 text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
                   {"Mars Protocol"}
                 </h2>
@@ -563,7 +583,7 @@ export default function HomePage() {
       <section className="relative z-0 w-screen ml-[calc(-50vw+50%)]">
         {/* Background with fade */}
         <div
-          className="absolute inset-0 w-full h-[1344px] bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 w-full min-h-full bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url(/panorama.png)",
             WebkitMaskImage:
@@ -574,73 +594,76 @@ export default function HomePage() {
         ></div>
 
         {/* Content on top - unaffected by fade */}
-        <div className="relative w-full h-[1344px] flex items-center justify-center z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-6xl mx-auto px-4">
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+        <div className="relative w-full flex flex-col z-10 py-8 sm:py-12 md:py-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 md:gap-12 lg:gap-16 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-[3/2]">
               <Image
                 src="/app-views/overview.png"
                 alt="Overview"
                 width={800}
                 height={600}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-semibold">Overview</h3>
+                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
+                  <h3 className="text-lg sm:text-xl font-semibold">Overview</h3>
                 </div>
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-[3/2]">
               <Image
                 src="/app-views/staking.png"
                 alt="Staking"
                 width={800}
                 height={600}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-semibold">Staking</h3>
+                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
+                  <h3 className="text-lg sm:text-xl font-semibold">Staking</h3>
                 </div>
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-[3/2]">
               <Image
                 src="/app-views/defi.png"
                 alt="DeFi"
                 width={800}
                 height={600}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-semibold">DeFi</h3>
+                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
+                  <h3 className="text-lg sm:text-xl font-semibold">DeFi</h3>
                 </div>
               </div>
             </div>
 
-            <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300 aspect-[4/3] sm:aspect-[3/2]">
               <Image
                 src="/app-views/nft.png"
                 alt="NFTs"
                 width={800}
                 height={600}
-                className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-xl font-semibold">NFTs</h3>
+                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
+                  <h3 className="text-lg sm:text-xl font-semibold">NFTs</h3>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-            <p className="text-sm text-white font-bold drop-shadow-lg">
-              © 2024 whalingdotxyz. All rights reserved.
-            </p>
+          {/* Copyright positioned below images but still on panorama */}
+          <div className="mt-12 sm:mt-16 md:mt-24 pt-8 sm:pt-12 pb-2 sm:pb-2">
+            <div className="max-w-7xl mx-auto px-4 text-center">
+              <p className="text-xs sm:text-sm text-white font-bold drop-shadow-lg">
+                © 2024 whalingdotxyz. All rights reserved.
+              </p>
+            </div>
           </div>
         </div>
       </section>

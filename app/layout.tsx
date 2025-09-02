@@ -7,7 +7,7 @@ import { Suspense } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Whaling - Navigate the interchain",
+  title: "Whaling.xyz - Navigate the interchain",
   description:
     "Dive deep into the ocean of data with our whale-powered analytics platform",
   generator: "v0.app",

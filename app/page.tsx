@@ -294,12 +294,12 @@ export default function HomePage() {
               style={{
                 left: "50%",
                 top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${144}px) rotate(150deg)`,
+                transform: `translate(-50%, -50%) translateY(-${144}px) rotate(149deg)`,
               }}
             >
               <Image
-                src="/chains/osmo.svg"
-                alt="Osmosis"
+                src="/chains/neutron.svg"
+                alt="Neutron"
                 width={40}
                 height={40}
                 className="w-10 h-10 drop-shadow-lg"
@@ -338,12 +338,12 @@ export default function HomePage() {
               style={{
                 left: "50%",
                 top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${240}px)`,
+                transform: `translate(-50%, -50%) translateY(-${240}px)rotate(280deg)`,
               }}
             >
               <Image
-                src="/chains/baby.svg"
-                alt="Baby"
+                src="/chains/osmo.svg"
+                alt="Osmosis"
                 width={40}
                 height={40}
                 className="w-10 h-10 drop-shadow-lg"
@@ -430,8 +430,8 @@ export default function HomePage() {
               }}
             >
               <Image
-                src="/chains/neutron.svg"
-                alt="Neutron"
+                src="/chains/baby.svg"
+                alt="Baby"
                 width={40}
                 height={40}
                 className="w-10 h-10 drop-shadow-lg"

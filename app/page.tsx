@@ -448,6 +448,7 @@ export default function HomePage() {
                     width={140}
                     height={56}
                     className="drop-shadow-lg"
+                    style={{ width: 140, height: "auto" }}
                   />
                 </a>
               </div>
@@ -503,6 +504,7 @@ export default function HomePage() {
                     width={140}
                     height={28}
                     className="drop-shadow-lg"
+                    style={{ width: 140, height: "auto" }}
                   />
                 </a>
               </div>

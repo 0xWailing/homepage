@@ -40,17 +40,7 @@ export default function HomePage() {
   }, [showBannerOnHover]);
 
   const handleLogoClick = () => {
-    // Only enable click toggle on mobile (screens smaller than md breakpoint)
-    if (window.innerWidth < 768) {
-      const scrollY = window.scrollY;
-      const readyToExploreThreshold = window.innerHeight * 0.9;
-      const shouldShowOnScroll = scrollY > readyToExploreThreshold;
-
-      // Toggle banner only if not showing due to scroll
-      if (!shouldShowOnScroll) {
-        setShowBannerOnHover(!showBannerOnHover);
-      }
-    }
+    window.open("https://beta.whaling.xyz", "_blank");
   };
 
   return (
@@ -67,27 +57,7 @@ export default function HomePage() {
                 ? "opacity-100 scale-100"
                 : "opacity-0 scale-95 pointer-events-none"
             }`}
-          >
-            <div className="bg-black/90 backdrop-blur-sm rounded-full px-4 sm:px-10 py-1 flex items-center justify-between w-80 sm:w-[28rem]">
-              <div className="flex-1 flex justify-center">
-                <button
-                  className="text-white hover:text-primary transition-colors text-xs sm:text-sm font-medium text-center"
-                  onClick={() =>
-                    window.open("https://beta.whaling.xyz", "_blank")
-                  }
-                >
-                  App (Launch Beta)
-                </button>
-              </div>
-              <div className="w-16 sm:w-24 h-6" />{" "}
-              {/* Smaller space for logo */}
-              <div className="flex-1 flex justify-center">
-                <button className="text-white hover:text-primary transition-colors text-xs sm:text-sm font-medium text-center">
-                  Docs (coming soon)
-                </button>
-              </div>
-            </div>
-          </div>
+          ></div>
 
           <div className="relative z-10">
             <Image
@@ -547,130 +517,24 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-
-            <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="flex-shrink-0">
-                <a
-                  href="https://nolus.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-64 h-32 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                  style={{ backgroundColor: "#E8EAF1" }}
-                >
-                  <Image
-                    src="/protocols/nolus_logo.svg"
-                    alt="Nolus"
-                    width={120}
-                    height={24}
-                    className="drop-shadow-lg"
-                  />
-                </a>
-              </div>
-              <div className="flex-1 text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  {"Nolus (coming soon)"}
-                </h2>
-                <p className="text-base text-gray-600 leading-relaxed mb-3">
-                  {
-                    "Supercharge your buying power with asset-backed leverage, fixed rates, and reduced margin call risk."
-                  }
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center mt-16">
-            <h3 className="text-2xl md:text-3xl font-semibold text-shadow-black">
-              {"And more to come..."}
-            </h3>
           </div>
         </div>
       </section>
 
-      <section className="relative z-0 w-screen ml-[calc(-50vw+50%)]">
+      <section className="min-h-screen relative overflow-hidden">
         {/* Background with fade */}
         <div
           className="absolute inset-0 w-full min-h-full bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url(/background/panorama.png)",
-            WebkitMaskImage:
-              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.01) 2%, rgba(0,0,0,0.03) 4%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.15) 10%, rgba(0,0,0,0.22) 12%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.4) 18%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.6) 22%, rgba(0,0,0,0.7) 24%, rgba(0,0,0,0.8) 26%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,1) 30%)",
-            maskImage:
-              "linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.01) 2%, rgba(0,0,0,0.03) 4%, rgba(0,0,0,0.06) 6%, rgba(0,0,0,0.1) 8%, rgba(0,0,0,0.15) 10%, rgba(0,0,0,0.22) 12%, rgba(0,0,0,0.3) 15%, rgba(0,0,0,0.4) 18%, rgba(0,0,0,0.5) 20%, rgba(0,0,0,0.6) 22%, rgba(0,0,0,0.7) 24%, rgba(0,0,0,0.8) 26%, rgba(0,0,0,0.9) 28%, rgba(0,0,0,1) 30%)",
           }}
         ></div>
-
-        {/* Content on top - unaffected by fade */}
-        <div className="relative w-full flex flex-col z-10 py-8 sm:py-12 md:py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 md:gap-12 lg:gap-16 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
-              <Image
-                src="/app-views/overview.png"
-                alt="Overview"
-                width={800}
-                height={600}
-                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
-                  <h3 className="text-lg sm:text-xl font-semibold">Overview</h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
-              <Image
-                src="/app-views/staking.png"
-                alt="Staking"
-                width={800}
-                height={600}
-                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
-                  <h3 className="text-lg sm:text-xl font-semibold">Staking</h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
-              <Image
-                src="/app-views/defi.png"
-                alt="DeFi"
-                width={800}
-                height={600}
-                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
-                  <h3 className="text-lg sm:text-xl font-semibold">DeFi</h3>
-                </div>
-              </div>
-            </div>
-
-            <div className="group relative overflow-hidden rounded-lg sm:rounded-xl shadow-md sm:shadow-lg hover:shadow-xl transition-all duration-300">
-              <Image
-                src="/app-views/nft.png"
-                alt="NFTs"
-                width={800}
-                height={600}
-                className="w-full h-auto group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 text-white">
-                  <h3 className="text-lg sm:text-xl font-semibold">NFTs</h3>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Copyright positioned below images but still on panorama */}
-          <div className="mt-12 sm:mt-16 md:mt-24 pt-8 sm:pt-12 pb-2 sm:pb-2">
-            <div className="max-w-7xl mx-auto px-4 text-center">
-              <p className="text-xs sm:text-sm text-white font-bold drop-shadow-lg">
-                © 2024 whalingdotxyz. All rights reserved.
-              </p>
-            </div>
+        {/* Copyright pinned to the bottom of the section */}
+        <div className="absolute bottom-0 left-0 right-0 pb-4">
+          <div className="max-w-7xl mx-auto px-4 text-center">
+            <p className="text-xs sm:text-sm text-white font-bold drop-shadow-lg">
+              © 2024 whalingdotxyz. All rights reserved.
+            </p>
           </div>
         </div>
       </section>

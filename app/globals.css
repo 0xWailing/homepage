@@ -154,3 +154,20 @@
 .animate-wave {
   animation: wave 4s ease-in-out infinite;
 }
+
+/* Constellation section */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+
+@keyframes constellation-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}

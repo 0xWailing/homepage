@@ -3,69 +3,62 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Github } from "lucide-react";
-import { useState, useEffect } from "react";
+import { EcosystemConstellation } from "@/components/ecosystem-constellation";
+import {
+  ArrowLeftRight,
+  Banknote,
+  Coins,
+  Github,
+  Sparkles,
+  Wallet,
+} from "lucide-react";
+
+const FEATURES = [
+  {
+    icon: Wallet,
+    title: "View Positions",
+    description:
+      "See every token, liquidity and lending position across your chains in one place.",
+  },
+  {
+    icon: Coins,
+    title: "Stake Management",
+    description:
+      "Track your delegations and rewards, and manage your staking across networks from a single view.",
+  },
+  {
+    icon: Sparkles,
+    title: "DeFi Protocols Highlight",
+    description:
+      "Discover leading protocols and opportunities, with the key data at a glance to make informed decisions.",
+  },
+  {
+    icon: ArrowLeftRight,
+    title: "Swap Across Chains",
+    description:
+      "Move assets between chains in a few clicks, without leaving the dashboard.",
+    comingSoon: true,
+  },
+  {
+    icon: Banknote,
+    title: "On/Off Ramp",
+    description: "Go from fiat to crypto and back, straight from whaleboard.",
+    comingSoon: true,
+  },
+];
 
 export default function HomePage() {
-  const [showNavBanner, setShowNavBanner] = useState(false);
-  const [showBannerOnHover, setShowBannerOnHover] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [scrollRotation, setScrollRotation] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const heroHeight = window.innerHeight * 0.8;
-      setIsScrolled(scrollY > heroHeight);
-
-      // Show banner when past the "Ready to Explore" section (roughly after hero + card)
-      const readyToExploreThreshold = window.innerHeight * 0.9;
-      const shouldShowOnScroll = scrollY > readyToExploreThreshold;
-      setShowNavBanner(shouldShowOnScroll || showBannerOnHover);
-
-      const rotation = (scrollY * 0.05) % 360;
-      setScrollRotation(rotation);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [showBannerOnHover]);
-
-  // Update banner visibility when hover state changes
-  useEffect(() => {
-    const scrollY = window.scrollY;
-    const readyToExploreThreshold = window.innerHeight * 0.9;
-    const shouldShowOnScroll = scrollY > readyToExploreThreshold;
-    setShowNavBanner(shouldShowOnScroll || showBannerOnHover);
-  }, [showBannerOnHover]);
-
   const handleLogoClick = () => {
-    window.open("https://beta.whaling.xyz", "_blank");
+    window.open("https://app.whaling.xyz", "_blank");
   };
 
   return (
     <>
-      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-30">
-        <div
-          className="relative"
-          onMouseEnter={() => setShowBannerOnHover(true)}
-          onMouseLeave={() => setShowBannerOnHover(false)}
-        >
-          <div
-            className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 transition-all duration-300 ${
-              showNavBanner
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-95 pointer-events-none"
-            }`}
-          ></div>
-
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 z-30">
+        <div className="relative">
           <div className="relative z-10">
             <Image
-              src={
-                showNavBanner
-                  ? "/logos/whaling_dark.png"
-                  : "/logos/whaling_logo.png"
-              }
+              src="/logos/whaling_logo.png"
               alt="Whaling Logo"
               width={112}
               height={112}
@@ -119,15 +112,15 @@ export default function HomePage() {
 
         <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8 pt-32">
           <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
               <span className="text-white">{"Dive deep into"}</span>
               <br />
               <span className="text-white">{"whaleboard"}</span>
             </h1>
 
-            <p className="text-base md:text-lg lg:text-xl text-white mb-6 text-pretty max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl text-white mb-6 text-balance max-w-xs md:max-w-md mx-auto leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
               {
-                "A unified dashboard to help you steer your liquidity across cosmos chains and apps."
+                "A unified dashboard to help you steer your liquidity across the interchain."
               }
             </p>
           </div>
@@ -138,11 +131,7 @@ export default function HomePage() {
                 {"Ready to Explore?"}
               </h2>
 
-              <p className="text-sm text-muted-foreground text-balance">
-                {
-                  "Check out the beta version that serves as a proof of concept with working assets overviews and protocols integrations."
-                }
-              </p>
+
 
               <Button
                 size="default"
@@ -150,7 +139,7 @@ export default function HomePage() {
                 asChild
               >
                 <a
-                  href="https://beta.whaling.xyz"
+                  href="https://app.whaling.xyz"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -193,353 +182,37 @@ export default function HomePage() {
       </main>
 
       <section className="bg-white py-20 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
             {"Navigate the Interchain"}
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-primary">
-                {"Unified Assets Management"}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {
-                  "Track and manage your assets across multiple Cosmos chains from a single, intuitive dashboard. No more jumping between different interfaces."
-                }
-              </p>
-            </div>
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-primary">
-                {"Defi & NFTs"}
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                {
-                  "centralized overview of your liquity across various protocols with critical data at a glance helping you make informed decisions in the DeFi space."
-                }
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-gradient-to-br from-gray-50 to-gray-100 py-20 px-4 border-t border-gray-200 relative overflow-hidden min-h-screen">
-        <div className="absolute inset-0 flex items-center justify-center opacity-40 blur-[1px]">
-          <div className="w-48 h-48 border border-gray-300 rounded-full absolute"></div>
-          <div className="w-72 h-72 border border-gray-300 rounded-full absolute"></div>
-          <div className="w-96 h-96 border border-gray-300 rounded-full absolute"></div>
-          <div className="w-[30rem] h-[30rem] border border-gray-300 rounded-full absolute"></div>
-          <div className="w-[36rem] h-[36rem] border border-gray-300 rounded-full absolute"></div>
-          <div className="w-[42rem] h-[42rem] border border-gray-300 rounded-full absolute"></div>
-          <div className="w-[48rem] h-[48rem] border border-gray-300 rounded-full absolute"></div>
-          <div className="w-[54rem] h-[54rem] border border-gray-300 rounded-full absolute"></div>
-
-          <div
-            className="absolute w-48 h-48"
-            style={{ transform: `rotate(${scrollRotation + 85}deg)` }}
-          >
-            <div
-              className="absolute hover:scale-125 transition-transform duration-300"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${96}px)`,
-              }}
-            >
-              <Image
-                src="/chains/atom.svg"
-                alt="Cosmos Hub"
-                width={40}
-                height={40}
-                className="w-10 h-10 drop-shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div
-            className="absolute w-72 h-72"
-            style={{ transform: `rotate(${scrollRotation * 0.9 + 160}deg)` }}
-          >
-            <div
-              className="absolute hover:scale-125 transition-transform duration-300"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${144}px) rotate(149deg)`,
-              }}
-            >
-              <Image
-                src="/chains/neutron.svg"
-                alt="Neutron"
-                width={40}
-                height={40}
-                className="w-10 h-10 drop-shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div
-            className="absolute w-96 h-96"
-            style={{ transform: `rotate(${scrollRotation * 0.8 + 310}deg)` }}
-          >
-            <div
-              className="absolute hover:scale-125 transition-transform duration-300"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${192}px) rotate(7deg)`,
-              }}
-            >
-              <Image
-                src="/chains/dydx.svg"
-                alt="dYdX"
-                width={40}
-                height={40}
-                className="w-10 h-10 drop-shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div
-            className="absolute w-[30rem] h-[30rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.7 + 25}deg)` }}
-          >
-            <div
-              className="absolute hover:scale-125 transition-transform duration-300"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${240}px)rotate(280deg)`,
-              }}
-            >
-              <Image
-                src="/chains/osmo.svg"
-                alt="Osmosis"
-                width={40}
-                height={40}
-                className="w-10 h-10 drop-shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div
-            className="absolute w-[36rem] h-[36rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.6 + 220}deg)` }}
-          >
-            <div
-              className="absolute hover:scale-125 transition-transform duration-300"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${288}px) rotate(110deg)`,
-              }}
-            >
-              <Image
-                src="/chains/noble.svg"
-                alt="Noble"
-                width={40}
-                height={40}
-                className="w-10 h-10 drop-shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div
-            className="absolute w-[42rem] h-[42rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.5 + 155}deg)` }}
-          >
-            <div
-              className="absolute hover:scale-125 transition-transform duration-300"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${336}px) rotate(177deg)`,
-              }}
-            >
-              <Image
-                src="/chains/akt.svg"
-                alt="Akash"
-                width={40}
-                height={40}
-                className="w-10 h-10 drop-shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div
-            className="absolute w-[48rem] h-[48rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.4 + 280}deg)` }}
-          >
-            <div
-              className="absolute hover:scale-125 transition-transform duration-300"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${384}px)`,
-              }}
-            >
-              <Image
-                src="/chains/celestia.svg"
-                alt="Celestia"
-                width={40}
-                height={40}
-                className="w-10 h-10 drop-shadow-lg"
-              />
-            </div>
-          </div>
-
-          <div
-            className="absolute w-[54rem] h-[54rem]"
-            style={{ transform: `rotate(${scrollRotation * 0.3 + 70}deg)` }}
-          >
-            <div
-              className="absolute hover:scale-125 transition-transform duration-300"
-              style={{
-                left: "50%",
-                top: "50%",
-                transform: `translate(-50%, -50%) translateY(-${432}px) rotate(5deg)`,
-              }}
-            >
-              <Image
-                src="/chains/baby.svg"
-                alt="Baby"
-                width={40}
-                height={40}
-                className="w-10 h-10 drop-shadow-lg"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="absolute inset-0 flex flex-col items-center justify-center z-20 pointer-events-none -mt-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            {"Supported Chains"}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto text-center">
-            {
-              "Navigate through all flagship cosmos chains with integrated chain support"
-            }
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-white py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              {"Integrated Protocols"}
-            </h2>
-          </div>
-          <div className="space-y-16">
-            <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="flex-shrink-0">
-                <a
-                  href="https://marsprotocol.io/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-64 h-32 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                  style={{
-                    background:
-                      "linear-gradient(to bottom right, #440B37, black)",
-                  }}
-                >
-                  <Image
-                    src="/protocols/mars_protocol.svg"
-                    alt="Mars Protocol"
-                    width={140}
-                    height={56}
-                    className="drop-shadow-lg"
-                    style={{ width: 140, height: "auto" }}
-                  />
-                </a>
-              </div>
-              <div className="flex-1 text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  {"Mars Protocol"}
-                </h2>
-                <p className="text-base text-gray-600 leading-relaxed mb-3">
-                  {"Your ultimate destination for leveraged yield."}
+          <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
+            {FEATURES.map((feature) => (
+              <div
+                key={feature.title}
+                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col items-center space-y-4"
+              >
+                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
+                  <feature.icon className="w-6 h-6" />
+                </div>
+                <h3 className="text-xl font-semibold text-primary">
+                  {feature.title}
+                </h3>
+                {feature.comingSoon && (
+                  <span className="-mt-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
+                    {"Coming soon"}
+                  </span>
+                )}
+                <p className="text-gray-600 leading-relaxed max-w-sm">
+                  {feature.description}
                 </p>
               </div>
-            </div>
-
-            <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="flex-shrink-0">
-                <a
-                  href="https://stargaze.zone/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-64 h-32 bg-black rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                >
-                  <Image
-                    src="/protocols/stargaze_logo.svg"
-                    alt="Stargaze"
-                    width={120}
-                    height={24}
-                    className="drop-shadow-lg"
-                  />
-                </a>
-              </div>
-              <div className="flex-1 text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  {"Stargaze"}
-                </h2>
-                <p className="text-base text-gray-600 leading-relaxed mb-3">
-                  {"The interchain NFTs marketplace."}
-                </p>
-              </div>
-            </div>
-
-            <div className="flex flex-col md:flex-row items-center gap-12">
-              <div className="flex-shrink-0">
-                <a
-                  href="https://superbolt.xyz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center w-64 h-32 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
-                  style={{ backgroundColor: "#3FFFF3" }}
-                >
-                  <Image
-                    src="/protocols/superbolt_logo.svg"
-                    alt="Superbolt"
-                    width={140}
-                    height={28}
-                    className="drop-shadow-lg"
-                    style={{ width: 140, height: "auto" }}
-                  />
-                </a>
-              </div>
-              <div className="flex-1 text-center md:text-left">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                  {"Superbolt"}
-                </h2>
-                <p className="text-base text-gray-600 leading-relaxed mb-3">
-                  {
-                    "Where NFTs meet DeFi - mint, trade and fractionalize your NFTs!"
-                  }
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="min-h-screen relative overflow-hidden">
-        {/* Background with fade */}
-        <div
-          className="absolute inset-0 w-full min-h-full bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url(/background/panorama.png)",
-          }}
-        ></div>
-        {/* Copyright pinned to the bottom of the section */}
-        <div className="absolute bottom-0 left-0 right-0 pb-4">
-          <div className="max-w-7xl mx-auto px-4 text-center">
-            <p className="text-xs sm:text-sm text-white font-bold drop-shadow-lg">
-              © 2024 whalingdotxyz. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </section>
+      <EcosystemConstellation />
     </>
   );
 }

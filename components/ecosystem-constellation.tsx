@@ -92,10 +92,10 @@ const EDGES: Edge[] = [
 
 const EDGE_STYLE: Record<EdgeKind, { stroke: string; width: number; opacity: number; dash?: string }> = {
   spoke: { stroke: "#ffffff", width: 1, opacity: 0.2, dash: "3 9" },
-  mesh: { stroke: "#a5f3fc", width: 1, opacity: 0.18 },
-  tie: { stroke: "#a5f3fc", width: 1.5, opacity: 0.45 },
-  lattice: { stroke: "#a5f3fc", width: 1, opacity: 0.18 },
-  app: { stroke: "#67e8f9", width: 1, opacity: 0.25 },
+  mesh: { stroke: "#c4b5fd", width: 1, opacity: 0.18 },
+  tie: { stroke: "#c4b5fd", width: 1.5, opacity: 0.45 },
+  lattice: { stroke: "#c4b5fd", width: 1, opacity: 0.18 },
+  app: { stroke: "#a78bfa", width: 1, opacity: 0.25 },
 };
 
 // Deterministic pseudo-random values so server and client render the same stars.
@@ -221,7 +221,7 @@ export function EcosystemConstellation() {
   });
 
   return (
-    <section className="relative overflow-hidden bg-[radial-gradient(ellipse_at_center,#2a1f5c_0%,#120f2e_45%,#07061a_100%)] min-h-svh flex flex-col justify-center py-10 px-4">
+    <section className="relative overflow-hidden bg-canvas bg-[radial-gradient(ellipse_at_center,rgba(167,139,250,0.14)_0%,transparent_60%)] min-h-svh flex flex-col justify-center py-10 px-4">
       {STARS.map((star, i) => (
         <div
           key={i}
@@ -235,12 +235,15 @@ export function EcosystemConstellation() {
           }}
         />
       ))}
+      {/* Fade the stars and glow in from the plain section above. */}
+      <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-canvas to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center mb-4 md:mb-6">
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
-          {"Supported Chains & Apps"}
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.03em] text-ink mb-2">
+          {"Supported Chains & "}
+          <span className="text-brand-gradient">{"Apps"}</span>
         </h2>
-        <p className="text-base md:text-lg text-white/70 max-w-xl mx-auto text-balance">
+        <p className="text-base md:text-lg text-ink-muted max-w-xl mx-auto text-balance">
           {
             "One constellation for your liquidity. Hover or tap a chain to see the apps living on it."
           }
@@ -254,9 +257,14 @@ export function EcosystemConstellation() {
         // the height left under the heading. Logos size against the smaller side.
         style={{ maxWidth: 1400, height: "max(20rem, calc(100svh - 15rem))" }}
       >
+        {/* preserveAspectRatio="none" stretches the drawing to exactly fill the
+            same box the logos are positioned in, so lines always meet their logos
+            even if the measured width is briefly out of date. non-scaling-stroke
+            keeps line thickness constant despite that stretch. */}
         <svg
           viewBox={`0 0 ${width} ${HEIGHT}`}
-          className="absolute inset-0 w-full h-full overflow-visible"
+          preserveAspectRatio="none"
+          className="absolute inset-0 w-full h-full overflow-visible [&_line]:[vector-effect:non-scaling-stroke]"
           aria-hidden="true"
         >
           {EDGES.map((edge) => {
@@ -298,12 +306,12 @@ export function EcosystemConstellation() {
           })}
         </svg>
 
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[26cqmin] rounded-full bg-cyan-300/15 blur-3xl pointer-events-none" />
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[max(3rem,11cqmin)] rounded-full border border-cyan-200/40 animate-ping [animation-duration:3s] motion-reduce:animate-none pointer-events-none" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[26cqmin] rounded-full bg-brand/15 blur-3xl pointer-events-none" />
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[max(3rem,11cqmin)] rounded-full border border-brand/40 animate-ping [animation-duration:3s] motion-reduce:animate-none pointer-events-none" />
 
         <Node
           {...nodeProps(DASHBOARD)}
-          className="size-[max(3rem,11cqmin)] drop-shadow-[0_0_16px_rgba(103,232,249,0.6)]"
+          className="size-[max(3rem,11cqmin)] drop-shadow-[0_0_16px_rgba(167,139,250,0.6)]"
           disc={false}
           labelClassName="text-white font-bold"
         />
@@ -312,7 +320,7 @@ export function EcosystemConstellation() {
           <Node
             key={l1.id}
             {...nodeProps(l1)}
-            className={`${l1.size} ring-2 ring-white/30 shadow-[0_0_32px_rgba(165,243,252,0.4)]`}
+            className={`${l1.size} ring-2 ring-white/25 shadow-[0_0_32px_rgba(167,139,250,0.4)]`}
             labelClassName="text-white font-semibold"
           />
         ))}
@@ -321,7 +329,7 @@ export function EcosystemConstellation() {
           <Node
             key={l2.id}
             {...nodeProps(l2)}
-            className="size-[max(1.5rem,4.8cqmin)] ring-2 ring-white/25 shadow-[0_0_20px_rgba(103,232,249,0.35)]"
+            className="size-[max(1.5rem,4.8cqmin)] ring-2 ring-white/20 shadow-[0_0_20px_rgba(167,139,250,0.35)]"
             labelClassName="text-white font-semibold"
           />
         ))}
@@ -330,8 +338,8 @@ export function EcosystemConstellation() {
           <Node
             key={app.id}
             {...nodeProps(app)}
-            className="size-[max(1.5rem,4.8cqmin)] ring-1 ring-cyan-200/30 shadow-[0_0_16px_rgba(165,243,252,0.25)]"
-            labelClassName="text-cyan-100/80"
+            className="size-[max(1.5rem,4.8cqmin)] ring-1 ring-brand-soft/30 shadow-[0_0_16px_rgba(196,181,253,0.25)]"
+            labelClassName="text-ink-muted"
           />
         ))}
       </div>
@@ -339,7 +347,7 @@ export function EcosystemConstellation() {
       {/* The year comes from the visitor's clock, so it can differ from the
           server's around New Year; suppressHydrationWarning covers that. */}
       <p
-        className="absolute bottom-3 inset-x-0 z-10 text-center text-xs text-white/40"
+        className="absolute bottom-3 inset-x-0 z-10 text-center text-xs text-ink-muted/70"
         suppressHydrationWarning
       >
         © {new Date().getFullYear()} whalingdotxyz
@@ -401,7 +409,7 @@ function Node({
     >
       <div
         className={`relative rounded-full transition-transform duration-300 ${
-          disc ? `overflow-hidden ${body.bg ?? "bg-[#0d0b24]"}` : ""
+          disc ? `overflow-hidden ${body.bg ?? "bg-surface"}` : ""
         } ${focused ? "scale-110" : ""} ${className}`}
       >
         <div className={`absolute ${body.inset ?? "inset-0"}`}>

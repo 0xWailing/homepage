@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { EcosystemConstellation } from "@/components/ecosystem-constellation";
 import {
   ArrowLeftRight,
   Banknote,
+  BookOpen,
   Coins,
   Github,
+  MessageSquare,
   Sparkles,
   Wallet,
 } from "lucide-react";
@@ -46,6 +47,61 @@ const FEATURES = [
     comingSoon: true,
   },
 ];
+
+function SocialLinks({ className }: { className: string }) {
+  const linkClassName =
+    "p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300";
+
+  return (
+    <div className={className}>
+      <a
+        href="https://docs.whaling.xyz"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Documentation"
+        title="Documentation"
+        className={linkClassName}
+      >
+        <BookOpen className="w-5 h-5" />
+      </a>
+
+      <a
+        href="https://feedback.whaling.xyz"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Feedback"
+        title="Feedback"
+        className={linkClassName}
+      >
+        <MessageSquare className="w-5 h-5" />
+      </a>
+
+      <a
+        href="https://github.com/whalingdotxyz"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+        title="GitHub"
+        className={linkClassName}
+      >
+        <Github className="w-5 h-5" />
+      </a>
+
+      <a
+        href="https://x.com/whalingdotxyz"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="X"
+        title="X"
+        className={linkClassName}
+      >
+        <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+        </svg>
+      </a>
+    </div>
+  );
+}
 
 export default function HomePage() {
   const handleLogoClick = () => {
@@ -87,90 +143,53 @@ export default function HomePage() {
             backgroundPosition: "center",
           }}
         ></div>
+        {/* Fade the bottom of the picture into the section below. */}
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-b from-transparent to-canvas pointer-events-none" />
 
-        <div className="absolute top-6 right-6 z-20 hidden md:flex items-center gap-4">
-          <a
-            href="https://github.com/whalingdotxyz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300"
-          >
-            <Github className="w-5 h-5" />
-          </a>
+        <SocialLinks className="absolute top-6 right-6 z-20 hidden md:flex items-center gap-3" />
 
-          <a
-            href="https://x.com/whalingdotxyz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300"
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-            </svg>
-          </a>
-        </div>
-
-        <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 py-8 pt-32">
+        {/* Anchored near the top so the text stays in the sky, above the wave horizon. */}
+        <div className="relative z-10 flex flex-col items-center justify-start min-h-screen px-4 py-8 pt-[max(8rem,20svh)]">
           <div className="text-center max-w-4xl mx-auto mb-12">
-            <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
-              <span className="text-white">{"Dive deep into"}</span>
+            <div className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/80 py-1.5 pl-2 pr-3 text-[12.5px] font-medium text-ink-muted backdrop-blur mb-6">
+              <span className="size-1.5 rounded-full bg-brand" />
+              {"Multi-chain portfolio tracker"}
+            </div>
+
+            <h1 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] mb-4 text-balance drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+              <span className="text-ink">{"Dive deep into"}</span>
               <br />
-              <span className="text-white">{"whaleboard"}</span>
+              <span className="text-brand-gradient">{"whaleboard"}</span>
             </h1>
 
-            <p className="text-base md:text-lg lg:text-xl text-white mb-6 text-balance max-w-xs md:max-w-md mx-auto leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
+            <p className="text-base md:text-lg lg:text-xl text-ink mb-6 text-balance max-w-xs md:max-w-md mx-auto leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
               {
                 "A unified dashboard to help you steer your liquidity across the interchain."
               }
             </p>
           </div>
 
-          <Card className="p-6 md:p-8 bg-card/95 border-primary/20 shadow-2xl max-w-sm w-full mx-auto">
-            <div className="text-center space-y-6">
-              <h2 className="text-xl md:text-2xl font-semibold text-card-foreground">
-                {"Ready to Explore?"}
-              </h2>
+          <div className="w-full max-w-sm mx-auto rounded-card border border-line bg-surface/90 p-6 md:p-8 shadow-card backdrop-blur text-center space-y-5">
+            <h2 className="text-lg md:text-xl font-semibold text-ink">
+              {"Ready to Explore?"}
+            </h2>
 
-
-
-              <Button
-                size="default"
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 px-6 rounded-lg transition-colors duration-300"
-                asChild
+            <Button
+              size="default"
+              className="w-full h-11 rounded-[10px] bg-brand hover:bg-brand/90 text-ink-on-brand font-medium shadow-brand-glow transition-colors duration-300"
+              asChild
+            >
+              <a
+                href="https://app.whaling.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                <a
-                  href="https://app.whaling.xyz"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {"Start Your Journey"}
-                </a>
-              </Button>
-            </div>
-          </Card>
-
-          {/* Mobile social buttons - shown only on mobile */}
-          <div className="md:hidden flex items-center justify-center gap-4 mt-6 z-20">
-            <a
-              href="https://github.com/whalingdotxyz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-
-            <a
-              href="https://x.com/whalingdotxyz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 rounded-lg bg-gray-900/90 hover:bg-gray-800 text-white hover:text-primary transition-all duration-300"
-            >
-              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-              </svg>
-            </a>
+                {"Start Your Journey"}
+              </a>
+            </Button>
           </div>
+
+          <SocialLinks className="md:hidden flex items-center justify-center gap-3 mt-6 z-20" />
 
           <div className="mt-8" />
         </div>
@@ -181,29 +200,32 @@ export default function HomePage() {
         <div className="absolute bottom-20 right-10 w-2 h-2 bg-accent/30 rounded-full" />
       </main>
 
-      <section className="bg-white py-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12">
-            {"Navigate the Interchain"}
+      <section className="bg-canvas py-24 px-4">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.03em] text-ink text-center mb-12">
+            {"Navigate the "}
+            <span className="text-brand-gradient">{"Interchain"}</span>
           </h2>
-          <div className="flex flex-wrap justify-center gap-x-8 gap-y-12">
+          <div className="flex flex-wrap justify-center gap-4">
             {FEATURES.map((feature) => (
               <div
                 key={feature.title}
-                className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] flex flex-col items-center space-y-4"
+                className="w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.667rem)] rounded-card border border-line bg-surface p-[22px] shadow-card"
               >
-                <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 text-primary">
-                  <feature.icon className="w-6 h-6" />
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-center size-9 rounded-[10px] bg-brand/12 text-brand">
+                    <feature.icon className="w-4 h-4" />
+                  </div>
+                  {feature.comingSoon && (
+                    <span className="rounded-full bg-brand/12 px-2 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-brand">
+                      {"Coming soon"}
+                    </span>
+                  )}
                 </div>
-                <h3 className="text-xl font-semibold text-primary">
+                <h3 className="mt-4 text-[15px] font-semibold text-ink">
                   {feature.title}
                 </h3>
-                {feature.comingSoon && (
-                  <span className="-mt-2 rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-gray-500">
-                    {"Coming soon"}
-                  </span>
-                )}
-                <p className="text-gray-600 leading-relaxed max-w-sm">
+                <p className="mt-1.5 text-sm leading-relaxed text-ink-muted">
                   {feature.description}
                 </p>
               </div>

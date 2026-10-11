@@ -4,26 +4,35 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Updated color palette to match user's whale theme */
-  --background: oklch(0.98 0.01 240);
-  --foreground: oklch(0.15 0.02 240);
-  --card: oklch(0.98 0.01 240);
-  --card-foreground: oklch(0.15 0.02 240);
-  --popover: oklch(0.98 0.01 240);
-  --popover-foreground: oklch(0.15 0.02 240);
-  --primary: oklch(0.65 0.15 220); /* #4A9CFF equivalent */
-  --primary-foreground: oklch(0.98 0.01 240);
+  /* Brand palette, matching app.whaling.xyz (dark only for now) */
+  --brand-violet: #a78bfa;
+  --brand-violet-soft: #c4b5fd;
+  --brand-canvas: #0c0b09;
+  --brand-surface: #161512;
+  --brand-line: rgba(255, 245, 220, 0.07);
+  --brand-ink: #ededee;
+  --brand-ink-muted: #a0a0a6;
+  --brand-ink-on-violet: #0b0817;
+
+  --background: var(--brand-canvas);
+  --foreground: var(--brand-ink);
+  --card: var(--brand-surface);
+  --card-foreground: var(--brand-ink);
+  --popover: var(--brand-surface);
+  --popover-foreground: var(--brand-ink);
+  --primary: var(--brand-violet);
+  --primary-foreground: var(--brand-ink-on-violet);
   --secondary: oklch(0.85 0.05 200); /* Cyan tint */
   --secondary-foreground: oklch(0.15 0.02 240);
-  --muted: oklch(0.94 0.02 240);
-  --muted-foreground: oklch(0.45 0.02 240); /* #6B7280 equivalent */
+  --muted: var(--brand-surface);
+  --muted-foreground: var(--brand-ink-muted);
   --accent: oklch(0.75 0.12 200); /* Cyan accent */
   --accent-foreground: oklch(0.15 0.02 240);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.02 240);
-  --input: oklch(0.9 0.02 240);
-  --ring: oklch(0.65 0.15 220);
+  --border: var(--brand-line);
+  --input: var(--brand-line);
+  --ring: var(--brand-violet);
   --chart-1: oklch(0.65 0.15 220);
   --chart-2: oklch(0.75 0.12 200);
   --chart-3: oklch(0.55 0.18 260);
@@ -79,6 +88,15 @@
 @theme inline {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-brand: var(--brand-violet);
+  --color-brand-soft: var(--brand-violet-soft);
+  --color-canvas: var(--brand-canvas);
+  --color-surface: var(--brand-surface);
+  --color-line: var(--brand-line);
+  --color-ink: var(--brand-ink);
+  --color-ink-muted: var(--brand-ink-muted);
+  --color-ink-on-brand: var(--brand-ink-on-violet);
+  --radius-card: 18px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -153,6 +171,25 @@
 
 .animate-wave {
   animation: wave 4s ease-in-out infinite;
+}
+
+/* Brand helpers, matching app.whaling.xyz */
+@utility text-brand-gradient {
+  background-image: linear-gradient(120deg, var(--brand-violet), var(--brand-violet-soft));
+  background-clip: text;
+  color: transparent;
+}
+
+@utility shadow-brand-glow {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.2),
+    0 6px 18px -6px var(--brand-violet);
+}
+
+@utility shadow-card {
+  box-shadow:
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.024),
+    0 8px 24px -16px rgba(0, 0, 0, 0.5);
 }
 
 /* Constellation section */
